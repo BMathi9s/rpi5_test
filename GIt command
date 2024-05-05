@@ -4,3 +4,15 @@ git add <file1> <file2> ... <fileN>
 git add .
 git commit -m "Commit message"
 git push
+
+create branch
+git branch branch_name
+switch branch 
+git checkout branch_name
+Creating a new branch and switching to it (shortcut):
+git checkout -b new_branch_name
+git merge branch_to_merge
+
+
+To push the current branch and set the remote as upstream, use
+git push --set-upstream origin merge_test
