@@ -1,0 +1,3 @@
+[submodule "python3-gpiod"]
+	path = python3-gpiod
+	url = https://github.com/hhk7734/python3-gpiod.git
