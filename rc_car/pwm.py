@@ -1,26 +1,43 @@
-import gpiod
+#! /usr/bin/env python3
+from gpiozero import PWMOutputDevice, DigitalOutputDevice
 import time
 
-# Define the chip and line
-chip = gpiod.Chip('gpiochip0')
-line = chip.get_line(12)  # Use GPIO12 (pin 32 on the Pi)
+# Configuration
+DIRECTION_PIN = 17  # BCM pin used to set motor direction
+SPEED_PIN = 18      # BCM pin used to control motor speed
+WAIT_TIME = 2       # [s]8Time to wait between each refresh
+PWM_FREQ = 10       # [kHz] 25kHz for PWM control
 
-# Define the PWM parameters
-frequency = 1000  # Frequency in Hz
-duty_cycle = 0.5  # Duty cycle (0.0 <= dc <= 1.0)
+# Configurable motor speed and direction
+MOTOR_MIN = 0       # minimum motor speed (0 = stop)
+MOTOR_MAX = 1       # maximum motor speed (1 = full speed)
 
-# Create a PWM line
-line.request(consumer='my_app', type=gpiod.LINE_REQ_EV_PULSE, flags=gpiod.LINE_REQ_FLAG_ACTIVELOW)
-line.set_config(0, gpiod.LINE_REQ_FLAG_ACTIVELOW, gpiod.LINE_REQ_EV_PULSE)
+# Set motor speed
+def setMotorSpeed(speed):
+    pwm_motor.value = speed  # set speed from 0 to 1
+    return()
 
-# Set the PWM parameters
-line.set_pwmcycle(frequency, duty_cycle)
+# Set motor direction
+def setMotorDirection(direction):
+    dir_motor.value = direction  # set direction (0 = backward, 1 = forward)
+    return()
 
-# Enable the PWM
-line.enable()
+try:
+    pwm_motor = PWMOutputDevice(SPEED_PIN, initial_value=0, frequency=PWM_FREQ)  # initialize SPEED_PIN as a pwm output
+    dir_motor = DigitalOutputDevice(DIRECTION_PIN)  # initialize DIRECTION_PIN as a digital output
+    setMotorSpeed(MOTOR_MIN)  # initially set motor speed to the MOTOR_MIN value
+    setMotorDirection(1)  # initially set motor direction to forward
 
-# Wait for a while
-time.sleep(10)
+    while True:
+        for speed in range(0, 11):
+            setMotorSpeed(speed/10)  # gradually increase speed from 0 to 1
+            time.sleep(WAIT_TIME)  # wait for WAIT_TIME seconds before next change
 
-# Disable the PWM
-line.disable()
+        setMotorDirection(0 if dir_motor.value else 1)  # switch direction
+
+except KeyboardInterrupt:  # trap a CTRL+C keyboard interrupt
+    setMotorSpeed(MOTOR_MIN)
+
+finally:
+    pwm_motor.close()  # in case of unexpected exit, resets pin status (motor will go full speed after exiting)
+    dir_motor.close()  # resets pin status
