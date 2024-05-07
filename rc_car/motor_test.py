@@ -10,7 +10,7 @@ def motor_test():
         for speed in range(0, 101):
             motor1.set_speed(speed/100)  # gradually increase speed from 0 to 1
             motor2.set_speed(speed/100)
-            time.sleep(0.5)  # wait for 0.1 seconds before next change
+            time.sleep(0.2)  # wait for 0.1 seconds before next change
 
     except KeyboardInterrupt:  # trap a CTRL+C keyboard interrupt
         motor1.set_speed(0)  # stop motor
