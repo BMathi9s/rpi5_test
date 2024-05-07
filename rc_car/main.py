@@ -1,5 +1,12 @@
 # main.py
 from motor_driver import MotorDriver
+
+
+import sys
+sys.path.insert(0, 'inputs\inputs.py')
+
+import inputs
+
 from inputs import get_gamepad
 
 def main():
