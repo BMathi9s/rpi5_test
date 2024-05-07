@@ -2,7 +2,7 @@
 from motor_driver import MotorDriver
 import time
 
-def main():
+def motor_test():
     motor1 = MotorDriver(17, 18)  # create a MotorDriver object with dir_pin=17 and pwm_pin=18
     motor2 = MotorDriver(22, 27)
 
@@ -20,5 +20,5 @@ def main():
         motor1.close()  # in case of unexpected exit, resets pin status (motor will go full speed after exiting)
         motor2.close()
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__motor_test__":
+    motor_test()
