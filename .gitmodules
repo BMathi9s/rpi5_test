@@ -1,3 +1,6 @@
 [submodule "python3-gpiod"]
 	path = python3-gpiod
 	url = https://github.com/hhk7734/python3-gpiod.git
+[submodule "Music/rpi5/inputs"]
+	path = Music/rpi5/inputs
+	url = https://github.com/zeth/inputs.git
