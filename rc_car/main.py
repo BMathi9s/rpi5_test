@@ -15,7 +15,7 @@ def main():
                     direction = 1 if speed >= 0 else 0  # determine the direction based on the sign of the speed
                     motor1.set_speed(abs(speed))  # set the speed of the first motor
                     motor1.set_dir(direction)  # set the direction of the first motor
-                elif event.code == 'ABS_RY':  # if the event is from the right joystick's Y-axis
+                elif event.code == 'ABS_RZ':  # if the event is from the right joystick's Y-axis
                     speed = event.state / 32768  # normalize the joystick value to get a speed between 0 and 1
                     direction = 1 if speed >= 0 else 0  # determine the direction based on the sign of the speed
                     motor2.set_speed(abs(speed))  # set the speed of the second motor

@@ -20,5 +20,5 @@ def motor_test():
         motor1.close()  # in case of unexpected exit, resets pin status (motor will go full speed after exiting)
         motor2.close()
 
-if __name__ == "__motor_test__":
+if __name__ == "__main__":
     motor_test()
