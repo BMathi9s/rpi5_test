@@ -4,7 +4,7 @@ from pyPS4Controller.controller import Controller
 import time
 
 speed_c = 0.5
-sleep = 0.1
+sleep = 0
 
 class MyController(Controller):
 
@@ -13,75 +13,75 @@ class MyController(Controller):
         self.motor1 = MotorDriver(17, 18)
         self.motor2 = MotorDriver(22, 27)
 
-    def on_R3_up  (self, value):
-        speed = value / 32768
-        direction = 1
-        self.motor1.set_speed(abs(speed))
-        self.motor1.set_dir(direction)
-        self.motor2.set_speed(abs(speed))
-        self.motor2.set_dir(direction)
-        time.sleep(sleep)
+    # def on_R3_up  (self, value):
+    #     speed = value / 32768
+    #     direction = 1
+    #     self.motor1.set_speed(abs(speed))
+    #     self.motor1.set_dir(direction)
+    #     self.motor2.set_speed(abs(speed))
+    #     self.motor2.set_dir(direction)
+    #     time.sleep(sleep)
 
-    def on_R3_down  (self, value):
-        speed = value / 32768
-        direction = 0
-        self.motor1.set_speed(abs(speed))
-        self.motor1.set_dir(direction)
-        self.motor2.set_speed(abs(speed))
-        self.motor2.set_dir(direction)
-        time.sleep(sleep)
+    # def on_R3_down  (self, value):
+    #     speed = value / 32768
+    #     direction = 0
+    #     self.motor1.set_speed(abs(speed))
+    #     self.motor1.set_dir(direction)
+    #     self.motor2.set_speed(abs(speed))
+    #     self.motor2.set_dir(direction)
+    #     time.sleep(sleep)
         
-    def on_R3_left(self, value):
-        speed = value / 32768
-        self.motor1.set_speed(abs(speed))
-        self.motor1.set_dir(1)
-        self.motor2.set_speed(abs(speed))
-        self.motor2.set_dir(0)
-        time.sleep(sleep)
+    # def on_R3_left(self, value):
+    #     speed = value / 32768
+    #     self.motor1.set_speed(abs(speed))
+    #     self.motor1.set_dir(1)
+    #     self.motor2.set_speed(abs(speed))
+    #     self.motor2.set_dir(0)
+    #     time.sleep(sleep)
         
-    def on_R3_right(self, value):
-        speed = value / 32768
-        self.motor1.set_speed(abs(speed))
-        self.motor1.set_dir(0)
-        self.motor2.set_speed(abs(speed))
-        self.motor2.set_dir(1)
-        time.sleep(sleep)
-        
-        
-    def on_L3_up(self, value):
-        speed = value / 32768
-        direction = 1
-        self.motor1.set_speed(abs(speed))
-        self.motor1.set_dir(direction)
-        self.motor2.set_speed(abs(speed))
-        self.motor2.set_dir(direction)
-        time.sleep(sleep)
+    # def on_R3_right(self, value):
+    #     speed = value / 32768
+    #     self.motor1.set_speed(abs(speed))
+    #     self.motor1.set_dir(0)
+    #     self.motor2.set_speed(abs(speed))
+    #     self.motor2.set_dir(1)
+    #     time.sleep(sleep)
         
         
-    def on_L3_down(self, value):
-        speed = value / 32768
-        direction = 0
-        self.motor1.set_speed(abs(speed))
-        self.motor1.set_dir(direction)
-        self.motor2.set_speed(abs(speed))
-        self.motor2.set_dir(direction)
-        time.sleep(sleep)
+    # def on_L3_up(self, value):
+    #     speed = value / 32768
+    #     direction = 1
+    #     self.motor1.set_speed(abs(speed))
+    #     self.motor1.set_dir(direction)
+    #     self.motor2.set_speed(abs(speed))
+    #     self.motor2.set_dir(direction)
+    #     time.sleep(sleep)
         
-    def on_R3_left(self, value):
-        speed = value / 32768
-        self.motor1.set_speed(abs(speed))
-        self.motor1.set_dir(1)
-        self.motor2.set_speed(abs(speed))
-        self.motor2.set_dir(0)
-        time.sleep(sleep)
         
-    def on_L3_right(self, value):
-        speed = value / 32768
-        self.motor1.set_speed(abs(speed))
-        self.motor1.set_dir(0)
-        self.motor2.set_speed(abs(speed))
-        self.motor2.set_dir(1)
-        time.sleep(sleep)
+    # def on_L3_down(self, value):
+    #     speed = value / 32768
+    #     direction = 0
+    #     self.motor1.set_speed(abs(speed))
+    #     self.motor1.set_dir(direction)
+    #     self.motor2.set_speed(abs(speed))
+    #     self.motor2.set_dir(direction)
+    #     time.sleep(sleep)
+        
+    # def on_R3_left(self, value):
+    #     speed = value / 32768
+    #     self.motor1.set_speed(abs(speed))
+    #     self.motor1.set_dir(1)
+    #     self.motor2.set_speed(abs(speed))
+    #     self.motor2.set_dir(0)
+    #     time.sleep(sleep)
+        
+    # def on_L3_right(self, value):
+    #     speed = value / 32768
+    #     self.motor1.set_speed(abs(speed))
+    #     self.motor1.set_dir(0)
+    #     self.motor2.set_speed(abs(speed))
+    #     self.motor2.set_dir(1)
+    #     time.sleep(sleep)
         
 
     def on_up_arrow_press(self):
