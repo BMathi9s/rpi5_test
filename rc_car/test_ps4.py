@@ -8,7 +8,7 @@ class MyController(Controller):
         print("X button pressed")
 
     def on_x_release(self):
-        print("X button released")
+        print("X button eqfwjlefngowujreleased")
 
 controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 controller.listen(timeout=60)

@@ -21,6 +21,34 @@ class MyController(Controller):
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(direction)
 
+    def on_up_arrow_press(self):
+        self.motor1.set_speed(1)
+        self.motor1.set_dir(1)
+        self.motor2.set_speed(1)
+        self.motor2.set_dir(1)
+
+    def on_down_arrow_press(self):
+        self.motor1.set_speed(1)
+        self.motor1.set_dir(0)
+        self.motor2.set_speed(1)
+        self.motor2.set_dir(0)
+
+    def on_left_arrow_press(self):
+        self.motor1.set_speed(1)
+        self.motor1.set_dir(0)
+        self.motor2.set_speed(1)
+        self.motor2.set_dir(1)
+
+    def on_right_arrow_press(self):
+        self.motor1.set_speed(1)
+        self.motor1.set_dir(1)
+        self.motor2.set_speed(1)
+        self.motor2.set_dir(0)
+
+    def on_up_down_left_right_arrow_release(self):
+        self.motor1.set_speed(0)
+        self.motor2.set_speed(0)
+
 def main():
     controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
     controller.listen()
