@@ -116,24 +116,24 @@ class MyController(Controller):
         self.motor1.set_speed(0)
         self.motor2.set_speed(0)
         
-    def on_up_down_arrow_release(self):
-        self.motor1.set_speed(0)
-        self.motor2.set_speed(0)
+    # def on_up_down_arrow_release(self):
+    #     self.motor1.set_speed(0)
+    #     self.motor2.set_speed(0)
         
-    def on_L3_x_at_rest(self):
-        self.motor1.set_speed(0)
-        self.motor2.set_speed(0)
-    def on_L3_y_at_rest(self):
-        self.motor1.set_speed(0)
-        self.motor2.set_speed(0)
+    # def on_L3_x_at_rest(self):
+    #     self.motor1.set_speed(0)
+    #     self.motor2.set_speed(0)
+    # def on_L3_y_at_rest(self):
+    #     self.motor1.set_speed(0)
+    #     self.motor2.set_speed(0)
     
-    def on_R3_x_at_rest(self):
-        self.motor1.set_speed(0)
-        self.motor2.set_speed(0)
+    # def on_R3_x_at_rest(self):
+    #     self.motor1.set_speed(0)
+    #     self.motor2.set_speed(0)
     
-    def on_R3_y_at_rest(self):
-        self.motor1.set_speed(0)
-        self.motor2.set_speed(0)
+    # def on_R3_y_at_rest(self):
+    #     self.motor1.set_speed(0)
+    #     self.motor2.set_speed(0)
      
 
 def main():
