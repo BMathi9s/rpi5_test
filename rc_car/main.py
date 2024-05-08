@@ -19,6 +19,7 @@ class MyController(Controller):
         self.motor1.set_dir(direction)
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(direction)
+        time.sleep(0.5)
 
     def on_R3_down  (self, value):
         speed = value / 32768
@@ -27,6 +28,7 @@ class MyController(Controller):
         self.motor1.set_dir(direction)
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(direction)
+        time.sleep(0.5)
         
     def on_R3_left(self, value):
         speed = value / 32768
@@ -34,6 +36,7 @@ class MyController(Controller):
         self.motor1.set_dir(1)
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(0)
+        time.sleep(0.5)
         
     def on_R3_right(self, value):
         speed = value / 32768
@@ -41,6 +44,7 @@ class MyController(Controller):
         self.motor1.set_dir(0)
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(1)
+        time.sleep(0.5)
         
         
     def on_L3_up(self, value):
@@ -50,6 +54,7 @@ class MyController(Controller):
         self.motor1.set_dir(direction)
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(direction)
+        time.sleep(0.5)
         
         
     def on_L3_down(self, value):
@@ -59,6 +64,7 @@ class MyController(Controller):
         self.motor1.set_dir(direction)
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(direction)
+        time.sleep(0.5)
         
     def on_R3_left(self, value):
         speed = value / 32768
@@ -66,6 +72,7 @@ class MyController(Controller):
         self.motor1.set_dir(1)
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(0)
+        time.sleep(0.5)
         
     def on_L3_right(self, value):
         speed = value / 32768
@@ -73,6 +80,7 @@ class MyController(Controller):
         self.motor1.set_dir(0)
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(1)
+        time.sleep(0.5)
         
 
     def on_up_arrow_press(self):
@@ -80,30 +88,49 @@ class MyController(Controller):
         self.motor1.set_dir(1)
         self.motor2.set_speed(speed_c)
         self.motor2.set_dir(1)
+        time.sleep(0.5)
 
     def on_down_arrow_press(self):
         self.motor1.set_speed(speed_c)
         self.motor1.set_dir(0)
         self.motor2.set_speed(speed_c)
         self.motor2.set_dir(0)
+        time.sleep(0.5)
 
     def on_left_arrow_press(self):
         self.motor1.set_speed(speed_c)
         self.motor1.set_dir(0)
         self.motor2.set_speed(speed_c)
         self.motor2.set_dir(1)
+        time.sleep(0.5)
 
     def on_right_arrow_press(self):
         self.motor1.set_speed(speed_c)
         self.motor1.set_dir(1)
         self.motor2.set_speed(speed_c)
         self.motor2.set_dir(0)
+        time.sleep(0.5)
 
     def on_left_right_arrow_release(self):
         self.motor1.set_speed(0)
         self.motor2.set_speed(0)
         
     def on_up_down_arrow_release(self):
+        self.motor1.set_speed(0)
+        self.motor2.set_speed(0)
+        
+    def on_L3_x_at_rest(self):
+        self.motor1.set_speed(0)
+        self.motor2.set_speed(0)
+    def on_L3_y_at_rest(self):
+        self.motor1.set_speed(0)
+        self.motor2.set_speed(0)
+    
+    def on_R3_x_at_rest(self):
+        self.motor1.set_speed(0)
+        self.motor2.set_speed(0)
+    
+    def on_R3_y_at_rest(self):
         self.motor1.set_speed(0)
         self.motor2.set_speed(0)
      
