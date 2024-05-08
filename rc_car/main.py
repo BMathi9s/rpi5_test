@@ -3,7 +3,7 @@ from motor_driver import MotorDriver
 from pyPS4Controller.controller import Controller
 import time
 
-speed_c = 0.5
+speed_c = 1
 sleep = 0
 
 class MyController(Controller):
