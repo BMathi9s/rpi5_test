@@ -10,9 +10,5 @@ class MyController(Controller):
     def on_x_release(self):
         print("X button released")
 
-    def stop_event_loop(self):
-        pass  # Overriding this method with an empty body will suppress the default event messages
-
-
 controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
 controller.listen(timeout=60)
