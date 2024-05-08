@@ -14,15 +14,48 @@ class MyController(Controller):
 
     def on_R3_up  (self, value):
         speed = value / 32768
-        direction = 1 if speed >= 0 else 0
+        direction = 1
         self.motor1.set_speed(abs(speed))
         self.motor1.set_dir(direction)
+        self.motor2.set_speed(abs(speed))
+        self.motor2.set_dir(direction)
 
     def on_R3_down  (self, value):
         speed = value / 32768
-        direction = 1 if speed >= 0 else 0
+        direction = 0
+        self.motor1.set_speed(abs(speed))
+        self.motor1.set_dir(direction)
         self.motor2.set_speed(abs(speed))
         self.motor2.set_dir(direction)
+        
+    def on_R3_left(self, value):
+        speed = value / 32768
+        self.motor1.set_speed(abs(speed))
+        self.motor1.set_dir(1)
+        self.motor2.set_speed(abs(speed))
+        self.motor2.set_dir(0)
+        
+    def on_R3_right(self, value):
+        speed = value / 32768
+        self.motor1.set_speed(abs(speed))
+        self.motor1.set_dir(0)
+        self.motor2.set_speed(abs(speed))
+        self.motor2.set_dir(1)
+        
+        
+    def on_L3_up(self, value):
+        print("sg")
+        
+        
+    def on_L3_down(self, value):
+        print("sg")
+        
+    def on_R3_left(self, value):
+        print("sg")
+        
+    def on_L3_right(self, value):
+        print("sg")
+        
 
     def on_up_arrow_press(self):
         self.motor1.set_speed(speed_c)
