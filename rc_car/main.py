@@ -1,6 +1,7 @@
 # main.py
 from motor_driver import MotorDriver
 from pyPS4Controller.controller import Controller
+import time
 
 speed_c = 0.5
 
@@ -50,6 +51,7 @@ class MyController(Controller):
     def on_up_down_left_right_arrow_release(self):
         self.motor1.set_speed(0)
         self.motor2.set_speed(0)
+        time.sleep(5)
 
 def main():
     controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
