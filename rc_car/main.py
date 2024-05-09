@@ -8,10 +8,10 @@ sleep = 0
 
 class MyController(Controller):
 
-    # def __init__(self, **kwargs):
-    #     Controller.__init__(self, **kwargs)
-    #     self.motor1 = MotorDriver(17, 18)
-    #     self.motor2 = MotorDriver(22, 27)
+    def __init__(self, **kwargs):
+        Controller.__init__(self, **kwargs)
+        self.motor1 = MotorDriver(17, 18)
+        self.motor2 = MotorDriver(22, 27)
 
     # def on_R3_up  (self, value):
     #     speed = value / 32768
